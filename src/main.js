@@ -10,13 +10,13 @@ const ORDER_URL = '';
 
 // The anchors are defined in scene.js. reach is the leader length in pixels.
 const LABELS = [
-  { id: 'cover', name: 'Printed cover', detail: 'White PLA or PETG', reach: 34 },
-  { id: 'coin', name: 'Coin cell', detail: 'CR2032', reach: 146 },
-  { id: 'holder', name: 'Cell holder', detail: 'BAT-HLD-001', reach: 92 },
-  { id: 'switch', name: 'Latching switch × 2', detail: 'BTSA-L-S-8', reach: 34 },
-  { id: 'led', name: 'Bicolor LED × 2', detail: 'APHBM2012SURKCGKC', reach: 72 },
-  { id: 'resistor', name: 'Resistor × 4', detail: '330 and 100 ohm', reach: 92 },
-  { id: 'board', name: 'Circuit board', detail: '85.6 × 54 × 1.6 mm', reach: 34 },
+  { id: 'cover', name: '3D printed cover', reach: 34 },
+  { id: 'coin', name: 'Coin cell', reach: 146 },
+  { id: 'holder', name: 'Battery holder', reach: 92 },
+  { id: 'switch', name: 'Push buttons', reach: 34 },
+  { id: 'led', name: 'Red and green lights', reach: 72 },
+  { id: 'resistor', name: 'Resistors', reach: 92 },
+  { id: 'board', name: 'Circuit board', reach: 34 },
 ];
 
 const FLIP_TEXT = ['Left red, right green.', 'Left green, right red.'];
@@ -37,15 +37,18 @@ const order = document.getElementById('order');
 if (ORDER_URL) {
   order.href = ORDER_URL;
   order.hidden = false;
+  if (!ORDER_URL.startsWith('mailto:')) {
+    order.target = '_blank';
+    order.rel = 'noopener';
+  }
 }
 
-const labelNodes = new Map(LABELS.map(({ id, name, detail, reach }) => {
+const labelNodes = new Map(LABELS.map(({ id, name, reach }) => {
   const node = document.createElement('div');
   node.className = 'label';
   node.style.setProperty('--reach', `${reach}px`);
-  node.innerHTML = '<span class="label__line"></span><span><strong></strong><small></small></span>';
+  node.innerHTML = '<span class="label__line"></span><strong></strong>';
   node.querySelector('strong').textContent = name;
-  node.querySelector('small').textContent = detail;
   labelLayer.append(node);
   return [id, node];
 }));
