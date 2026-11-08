@@ -7,7 +7,7 @@ npm install
 npm run dev
 ```
 
-`npm run build` writes a static site to `dist/` that can be hosted from any folder.
+`npm run build` writes a static site to `dist/` that can be hosted from any folder. Pushes to `main` publish it to GitHub Pages through `.github/workflows/deploy.yml`, once the repo's Pages source is set to GitHub Actions.
 
 ## Before you launch
 
