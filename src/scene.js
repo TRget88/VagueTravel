@@ -195,10 +195,11 @@ export async function createViewer(canvas, { onProgress, onFrame, reducedMotion 
     parts.cover.add(glow);
     return glow;
   });
+  // these lie flat on the board, because an upright glow gets cut off by it
   const halos = [parts.d1, parts.d2].map((led) => {
-    const halo = new THREE.Sprite(new THREE.SpriteMaterial({ map: texture, transparent: true, depthWrite: false, toneMapped: false }));
-    halo.scale.setScalar(24);
-    halo.position.y = 1.6;
+    const halo = new THREE.Mesh(new THREE.PlaneGeometry(24, 24), glowMaterial());
+    halo.rotation.x = -Math.PI / 2;
+    halo.position.y = 0.06;
     led.add(halo);
     return halo;
   });
