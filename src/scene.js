@@ -20,6 +20,7 @@ const SHOTS = [
   { az: -24, el: 34, dist: 262, y: 34 },
   { az: 20, el: 30, dist: 250, y: 30 },
   { az: -24, el: 18, dist: 300, y: 40 },
+  { az: -6, el: 70, dist: 210, y: 92 },
   { az: 10, el: 22, dist: 310, y: 40 },
 ];
 

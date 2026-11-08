@@ -415,10 +415,25 @@ a {
   height: 136px;
 }
 
-.footer p {
+.footer__text {
   flex: 1 1 280px;
   max-width: 46ch;
-  margin: 0;
+}
+
+.footer__text p {
+  margin: 0 0 10px;
+}
+
+.footer__link {
+  color: var(--ink);
+  font-weight: 500;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--rule);
+}
+
+.footer__link:hover {
+  color: var(--rust);
+  text-decoration-color: currentColor;
 }
 
 /* the parts list carries the same names when there is no room for callouts */
