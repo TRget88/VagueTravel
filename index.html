@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light" />
+    <title>ICW Nav Aid | Vague Travel</title>
+    <meta
+      name="description"
+      content="A card sized reminder of which side the channel markers belong on. Two lights, one button to flip them."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <svg width="0" height="0" class="sprite" aria-hidden="true">
+      <symbol id="mark-red" viewBox="0 0 32 32">
+        <path d="M16 3 30 28H2Z" fill="#C7362B" />
+        <path d="M16 13 22.5 25h-13Z" fill="#F4C430" />
+      </symbol>
+      <symbol id="mark-green" viewBox="0 0 32 32">
+        <rect x="3" y="3" width="26" height="26" rx="1.5" fill="#2B8A57" />
+        <rect x="11" y="11" width="10" height="10" fill="#F4C430" />
+      </symbol>
+    </svg>
+
+    <header class="nav">
+      <a class="brand" href="#top">
+        <img src="/vague-travel.svg" alt="" width="52" height="52" />
+        <span>Vague Travel</span>
+      </a>
+      <a class="nav__link" href="https://nurbly.com/adminkirk/icw-nav-aid" rel="noopener">Design files on Nurbly <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main id="top">
+      <div class="scrolly">
+        <div class="stage" aria-hidden="true">
+          <svg class="chart" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+            <g fill="none" stroke="currentColor" stroke-width="1">
+              <path d="M-20 700C180 610 330 760 530 690S900 560 1120 640 1400 690 1480 620" />
+              <path d="M-20 760C200 680 340 820 560 750S930 620 1140 700 1410 750 1480 690" />
+              <path d="M-20 830C220 770 370 880 590 820S960 700 1170 770 1420 820 1480 770" />
+              <path d="M-20 170C160 240 300 120 520 190S880 300 1110 220 1390 150 1480 210" />
+              <path d="M-20 100C180 170 320 60 550 120S910 230 1130 150 1400 90 1480 140" />
+              <path d="M-20 440C240 390 420 500 700 440S1160 370 1480 430" stroke-dasharray="2 9" stroke-linecap="round" />
+            </g>
+            <g class="chart__soundings" fill="currentColor">
+              <text x="760" y="130">17</text><text x="1290" y="520">7</text>
+              <text x="880" y="800">12</text><text x="1240" y="270">15</text>
+            </g>
+          </svg>
+          <canvas id="scene"></canvas>
+          <div class="labels" id="labels"></div>
+          <p class="status" id="status">Loading model</p>
+          <img class="fallback" src="/vague-travel.svg" alt="" />
+        </div>
+
+        <div class="chapters">
+          <section class="chapter chapter--hero" data-chapter>
+            <p class="eyebrow">ICW Nav Aid</p>
+            <h1>Red on the right, until you turn around.</h1>
+            <p class="lede">A card sized reminder of which side the channel markers belong on. Two lights, one button to flip them, and nothing to keep in your head.</p>
+            <div class="actions">
+              <a class="button" href="https://nurbly.com/adminkirk/icw-nav-aid" rel="noopener">See the design on Nurbly</a>
+            </div>
+            <p class="hint">Scroll to take it apart</p>
+          </section>
+
+          <section class="chapter" data-chapter>
+            <p class="eyebrow"><svg class="mark"><use href="#mark-red" /></svg>Why it exists</p>
+            <h2>It started with my dad.</h2>
+            <p>He was keeping track of channel marker orientation with navigation aids that were easy to mix up. On the Intracoastal Waterway, the side a marker belongs on depends on which way you are headed.</p>
+            <p>So this is the simplest fix I could build. A toggle that takes almost no effort to read.</p>
+          </section>
+
+          <section class="chapter" data-chapter>
+            <p class="eyebrow"><svg class="mark"><use href="#mark-green" /></svg>How it works</p>
+            <h2>One press swaps the sides.</h2>
+            <p>POWER latches the card on. The light on each side shows the color of the marks on that side. When your direction changes, press FLIP and the two colors trade places.</p>
+            <div class="flip">
+              <button class="flip__button" id="flip" type="button" aria-pressed="true" aria-label="Press the FLIP button on the model">FLIP</button>
+              <p class="flip__status" id="flip-status" aria-live="polite">Left green, right red.</p>
+            </div>
+          </section>
+
+          <section class="chapter" data-chapter>
+            <p class="eyebrow"><svg class="mark"><use href="#mark-red" /></svg>The cover</p>
+            <h2>A white shell that glows.</h2>
+            <p>The cover is 3D printed in white PLA or PETG. Above each LED the plate thins to a 0.6 mm skin, and a small tube around the LED keeps the light in a clean circle.</p>
+            <p>It snaps onto the board past four small ledges.</p>
+          </section>
+
+          <section class="chapter" data-chapter>
+            <p class="eyebrow"><svg class="mark"><use href="#mark-green" /></svg>The battery</p>
+            <h2>One coin cell, no app.</h2>
+            <p>A single CR2032 powers the card from a surface mount holder under the cover. There is nothing to charge and nothing to pair.</p>
+            <p>To change the cell, press the board out of the cover from behind.</p>
+          </section>
+
+          <section class="chapter chapter--parts" data-chapter>
+            <p class="eyebrow"><svg class="mark"><use href="#mark-red" /></svg>What is inside</p>
+            <h2>Every part on one side.</h2>
+            <p>A single layer board the exact size of a credit card, with all the parts on the front.</p>
+            <dl class="bom">
+              <div><dt>Printed cover</dt><dd>White PLA or PETG</dd></div>
+              <div><dt>Coin cell</dt><dd>CR2032</dd></div>
+              <div><dt>Cell holder</dt><dd>BAT-HLD-001</dd></div>
+              <div><dt>Latching switch × 2</dt><dd>BTSA-L-S-8</dd></div>
+              <div><dt>Bicolor LED × 2</dt><dd>APHBM2012SURKCGKC</dd></div>
+              <div><dt>Resistor × 4</dt><dd>330 and 100 ohm, 0603</dd></div>
+              <div><dt>Circuit board</dt><dd>85.6 × 54 × 1.6 mm</dd></div>
+            </dl>
+          </section>
+
+          <section class="chapter chapter--end" data-chapter>
+            <p class="eyebrow"><svg class="mark"><use href="#mark-green" /></svg>The design</p>
+            <h2>See how it is made.</h2>
+            <p>The schematic, board layout, 3D model and printable cover are all in the project library on Nurbly.</p>
+            <div class="actions">
+              <a class="button" href="https://nurbly.com/adminkirk/icw-nav-aid" rel="noopener">Open the library on Nurbly</a>
+              <a class="button button--quiet" id="order" hidden>Ask about buying one</a>
+            </div>
+            <p class="fine">Licensed <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener">CC BY-NC-SA 4.0</a>. Build and adapt it for non-commercial use with credit. Selling boards, kits or finished devices needs written permission.</p>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <img src="/vague-travel.svg" alt="Vague Travel logo" width="136" height="136" loading="lazy" />
+      <p>ICW Nav Aid is a memory aid. It does not replace charts, a proper lookout or the marks themselves.</p>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
